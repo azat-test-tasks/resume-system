@@ -1,0 +1,65 @@
+### List all resume
+GET http://localhost:8000/api/v1/resume/
+
+
+### Filter resume by title
+GET http://localhost:8000/api/v1/resume/?title=<resume_title>
+
+
+### Ordering resume by creation date
+GET http://localhost:8000/api/v1/resume/?ordering=-created_at
+
+
+### Create a new resume
+POST http://localhost:8000/api/v1/resume/
+Content-Type: application/json
+Authorization: Token <user_token>
+
+{
+  "title": "Test Resume",
+  "phone": "+7 (999) 999-99-99",
+  "email": "test_user@gmail.com",
+  "specialty": "Python Developer",
+  "salary": 2000,
+  "education": "Harvard University",
+  "status": "looking for a job",
+  "grade": "middle",
+  "experience": "2.5 years",
+  "portfolio": "https://example.com"
+}
+
+
+### View a resume detail
+GET http://localhost:8000/api/v1/resume/<resume_id>/
+
+
+### View a resume only for current user
+GET http://localhost:8000/api/v1/resume/my/
+Authorization: Token <user_token>
+
+
+### Update a resume
+PUT http://localhost:8000/api/v1/resume/<resume_id>/
+Content-Type: application/json
+Authorization: Token <user_token>
+
+{
+  "title": "Updated Resume",
+  "description": "This is an updated resume."
+}
+
+
+### Partially update a resume
+PATCH http://localhost:8000/api/v1/resume/<resume_id>/
+Content-Type: application/json
+Authorization: Token <user_token>
+
+{
+  "description": "This is a partially updated resume."
+}
+
+
+### Delete a resume
+DELETE http://localhost:8000/api/v1/resume/<resume_id>/
+Authorization: Token <user_token>
+
